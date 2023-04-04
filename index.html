@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Idle Clicker Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--- Home dan about us--->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+    </nav>
+
+    <!--- Tampilan utama (klik gif untuk mendapatkan poin atau score) --->
+    <h1>Taptap Master</h1>
+
+    <button id="button_click" style="display: none;"></button>
+    <img id="gif_click" src="data/bruh.gif" alt="Click Me" onclick="button_click.click()">
+
+
+    <!--- Score dan multiplier--->
+    <p>Your Score: <span id="score">0</span></p>
+
+    <button id="buy_auto">Buy Auto-Click (25 points)</button>
+
+    <p>Your Multiplier: <span id="multiplier">1x</span></p>
+
+    <button id="buy_multiplier">Buy Upgrade (50 points)</button>
+
+    <script src="app.js"></script>
+</body>
+</html>
