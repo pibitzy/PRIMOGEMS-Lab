@@ -1,12 +1,17 @@
-// Siapkan variable
+// variable yang diperlukan
 var button_click = document.getElementById("button_click");
 var scoreDisplay = document.getElementById("score");
 var buy_auto = document.getElementById("buy_auto");
 var buy_multiplier = document.getElementById("buy_multiplier");
 var multiplierDisplay = document.getElementById("multiplier");
+var multiplierGifs = ["/data/multiplier1.gif",
+                    "/data/multiplier2.gif",
+                    "/data/multiplier3.gif",
+                    "/data/multiplier4.gif",
+                    "/data/multiplier5.gif"];
 var score = 1, auto = 0, multiplier = 1;
 
-// Fitur Auto Click
+// fitur Auto Click
 buy_auto.addEventListener("click", function() {
     //setel harga disini, makin tinggi harga makin cepat rusak mousemu.
     var autoPrice = 25;
@@ -16,14 +21,16 @@ buy_auto.addEventListener("click", function() {
         updateScore();
         auto = 1;
 
-        buy_auto.innerHTML = `Buy Auto-Click (${autoPrice} points)`;
+        buy_auto.innerHTML = `Already Purchased`;
 
         if (auto == 1) {
             buy_auto.disabled = true;
             buy_auto.style.pointerEvents = "none";
         }
+
+        buy_auto.remove();
         
-        // Fungsi auto click
+        // fungsi auto click
         setInterval(function() {
             score = score + (auto * multiplier);
             updateScore();
@@ -34,34 +41,40 @@ buy_auto.addEventListener("click", function() {
     }
 });
 
-// Fitur Multiplier
+
+// fitur multiplier
 buy_multiplier.addEventListener("click", function() {
-    //setel harga disini, makin tinggi harga makin cepat rusak mousemu.
-    var multiplierPrice = 50;
-    // kalau mampu beli
-    if (score >= multiplierPrice) {
-        score = score - multiplierPrice;
-        updateScore();
+    var multiplierPrices = [5, 10, 20, 40, 80];
+    var maxMultiplier = 5;
 
-        multiplier++;
+    if (score >= multiplierPrices[multiplier-1]) {
+      score = score - multiplierPrices[multiplier-1];
+      updateScore();
 
-        // Ubah display
-        multiplierDisplay.innerHTML = `${multiplier}x`;
-        buy_multiplier.innerHTML = `Buy Upgrade (${multiplierPrice} points)`;
+      multiplier++;
+      // nanti kalo upgrade ganti gif
+      document.getElementById("multiplier_gif").src = multiplierGifs[multiplier-1];
+      multiplierDisplay.innerHTML = `${multiplier}x`;
+
+      if (multiplier === maxMultiplier) {
+        buy_multiplier.style.display = "none";
+      } else {
+        buy_multiplier.innerHTML = `Buy Upgrade (${multiplierPrices[multiplier-1]} points)`;
+      }
     } else {
-    // kalau ndak mampu beli
-        alert("Selamat, poin anda tidak cukup! Semangat Nguly!");
+      alert("Maaf, poin anda tidak cukup untuk membeli upgrade!");
     }
 });
 
-// Fungsi click
+
+// fungsi click
 button_click.addEventListener("click", function() {
-    // Tambah score setiap kali player melakukan click
+    // nambah score setiap click
     score = score + multiplier;
     updateScore();
 });
 
-// Update tampilan score
+// update tampilan score
 function updateScore() {
     scoreDisplay.innerHTML = `${score}`;
 }

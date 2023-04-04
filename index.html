@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!--- Home dan about us--->
+    <!-- navbar -->
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -13,21 +13,26 @@
         </ul>
     </nav>
 
-    <!--- Tampilan utama (klik gif untuk mendapatkan poin atau score) --->
+    <!-- tampilan utama -->
     <h1>Taptap Master</h1>
 
     <button id="button_click" style="display: none;"></button>
-    <img id="gif_click" src="data/bruh.gif" alt="Click Me" onclick="button_click.click()">
+    <img id="multiplier_gif" src="data/multiplier1.gif" alt="multiplier" onclick="button_click.click()">
 
-
-    <!--- Score dan multiplier--->
-    <p>Your Score: <span id="score">0</span></p>
+    <!-- table score dan multiplier -->
+    <table width="250">
+        <tr>
+            <th>Your Score</th>
+            <th>Your Multiplier</th>
+        </tr>
+        <tr>
+            <td><span id="score">0</span></td>
+            <td><span id="multiplier">1x</span></td>
+        </tr>
+    </table>
 
     <button id="buy_auto">Buy Auto-Click (25 points)</button>
-
-    <p>Your Multiplier: <span id="multiplier">1x</span></p>
-
-    <button id="buy_multiplier">Buy Upgrade (50 points)</button>
+    <button id="buy_multiplier">Buy Upgrade (5 points)</button>
 
     <script src="app.js"></script>
 </body>
