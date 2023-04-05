@@ -16,8 +16,12 @@
     <!-- tampilan utama -->
     <h1>Taptap Master</h1>
 
+    <!-- buat play sfx -->
+    <audio id="sfx" src="sfx/bling.mp3"></audio>
+    <audio id="buy" src="sfx/mario.mp3"></audio>
+
     <button id="button_click" style="display: none;"></button>
-    <img id="multiplier_gif" src="data/multiplier1.gif" alt="multiplier" onclick="button_click.click()">
+    <img id="multiplier_gif" src="data/01.gif" alt="multiplier" onclick="button_click.click(); playSFX();">
 
     <!-- table score dan multiplier -->
     <table width="250">
@@ -31,8 +35,8 @@
         </tr>
     </table>
 
-    <button id="buy_auto">Buy Auto-Click (25 points)</button>
-    <button id="buy_multiplier">Buy Upgrade (5 points)</button>
+    <button id="buy_auto" onclick="playBuy()">Buy Auto-Click (25 points)</button>
+    <button id="buy_multiplier" onclick="playBuy()">Buy Upgrade (50 points)</button>
 
     <script src="app.js"></script>
 </body>
