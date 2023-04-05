@@ -5,24 +5,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <audio id="bgm" src="bgm/bgm.mp3" loop></audio>
     <!-- navbar -->
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
+            <li id="bgm-container"><button id="bgm-btn"></button></li>
+            <li id="mute-container"><button id="mute-btn"></button></li>
+            <li id="volume-container">
+                <input type="range" min="0" max="1" step="0.1" value="0.5" id="volume-slider">
+            </li>
         </ul>
     </nav>
 
     <!-- tampilan utama -->
     <h1>Taptap Master</h1>
 
+    <!-- buat play sfx -->
+    <audio id="sfx" src="sfx/bling.mp3"></audio>
+    <audio id="buy" src="sfx/mario.mp3"></audio>
+
     <button id="button_click" style="display: none;"></button>
-    <img id="multiplier_gif" src="data/multiplier1.gif" alt="multiplier" onclick="button_click.click()">
+    <img id="multiplier_gif" src="data/LumineCat1.gif" alt="multiplier" onclick="button_click.click(); playSFX();">
 
     <!-- table score dan multiplier -->
     <table width="250">
         <tr>
-            <th>Your Score</th>
+            <th>Your Points</th>
             <th>Your Multiplier</th>
         </tr>
         <tr>
@@ -31,8 +41,8 @@
         </tr>
     </table>
 
-    <button id="buy_auto">Buy Auto-Click (25 points)</button>
-    <button id="buy_multiplier">Buy Upgrade (5 points)</button>
+    <button id="buy_auto" onclick="playBuy()">Buy Auto-Click (30 points)</button>
+    <button id="buy_multiplier" onclick="playBuy()">Upgrade Sword (50 points)</button>
 
     <script src="app.js"></script>
 </body>
