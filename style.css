@@ -4,7 +4,6 @@
     src: url(font/zh-cn.ttf);
   }
 
-  /* index style */
 body {
     font-family: 'zh-cn';
     margin: 0;
@@ -39,7 +38,7 @@ body {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 21px;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
   }
@@ -48,6 +47,73 @@ body {
     background-color: #ddd;
     color: black;
     transition: all 0.3s ease-in-out;
+  }  
+
+  #volume-slider {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-left: 20px;
+  }
+
+  #bgm-btn {
+    font-family: 'zh-cn';
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  #bgm-btn.muted {
+    background-color: red;
+  }
+  
+  #bgm-btn.muted::before {
+    content: "BGM: OFF";
+  }
+  
+  #bgm-btn::before {
+    content: "BGM: ON";
+  }
+  
+  #bgm-container {
+    float: right;
+  }
+
+  #mute-btn {
+    font-family: 'zh-cn';
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  #mute-btn.muted {
+    background-color: red;
+  }
+  
+  #mute-btn.muted::before {
+    content: "SFX: OFF";
+  }
+  
+  #mute-btn::before {
+    content: "SFX: ON";
+  }
+  
+  #mute-container {
+    float: right;
+  }
+
+  #bgm-btn:hover,
+  #mute-btn:hover {
+    background-color: darkgreen;
+  }
+
+  #volume-container {
+    padding: 20px;
+    float: right;
   }
   
   .container {
@@ -158,60 +224,4 @@ body {
   #buy_auto:hover,
   #buy_multiplier:hover {
     background-color: lightgreen;
-  }
-  
-  /* about us style*/
-
-  .abus {
-    display: flex;
-    justify-content: left;
-    margin-left: 10px;
-  }
-  .container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-  
-  .box {
-    width: 150px;
-    height: 350px;
-    background-color: #ccc;
-    margin-right: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .box img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    margin-bottom: 20px;
-  }
-  
-  .box h1 {
-    font-size: 18px;
-    margin: 0;
-  }
-  
-  .box p {
-    font-size: 14px;
-    line-height: 1.5;
-    margin: 0;
-  }
-  
-  .referensi {
-    display: flex;
-    justify-content: left;
-    margin-top: 20px;
-    margin-left: 10px;
-  }
-  
-  .referens {
-    display: flex;
-    justify-content: left;
-    margin-left: 10px;
   }
